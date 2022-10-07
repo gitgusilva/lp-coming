@@ -1,11 +1,13 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,800;0,900;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,800;0,900;1,700;1,900&display=swap');
+
 :root {
   --primary-color: #2a2a2a;
   --secondary-color: #bbac76;
   --tertiary-color: #9e8a4c;
   --quaternary-color: #ffffff;
+
   --error-color: #bf1650;
+
   --border-radius: 0.875rem;
   --padding-form: 20px 30px;
 }
@@ -14,12 +16,10 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-#root {
-  overflow: hidden;
-}
+#root { overflow: hidden; }
 
 #root section {
   display: flex;
@@ -47,10 +47,7 @@
   width: 50%;
 }
 
-#root .banner > .info > img.logo {
-  height: 8.5rem;
-  margin-bottom: 2.5rem;
-}
+#root .banner > .info > img.logo { height: 8.5rem; margin-bottom: 2.5rem; }
 
 #root .banner > .info > p.description {
   font-size: 2.3rem;
@@ -59,9 +56,7 @@
   color: var(--quaternary-color);
 }
 
-#root .banner > .info > p.description > b {
-  color: var(--tertiary-color);
-}
+#root .banner > .info > p.description > b { color: var(--tertiary-color); }
 
 #root .banner > .info > .progress-bar {
   flex-direction: column;
@@ -112,26 +107,14 @@
 }
 
 /** CONTACT FORM **/
-#root .contact {
-  justify-content: space-evenly;
-}
+#root .contact { justify-content: space-evenly; }
 
-#root .contact > form, #root .contact > .title {
-  width: 100%;
-  padding: 0 15vw;
-}
-
-#root .contact > .title {
-  margin-bottom: 2rem;
-}
-
-#root .contact > form {
-  margin: 2rem 0;
-}
-
+#root .contact > form, #root .contact > .title { width: 100%; padding: 0 15vw; }
+#root .contact > .title { margin-bottom: 2rem; }
+#root .contact > form { margin: 2rem 0; }
 #root .contact > form .background {
   padding: 3vh 2vh;
-  box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.1294117647);
+  box-shadow: 0 9px 5px 0 #00000021;
   background: var(--tertiary-color);
   border-radius: var(--border-radius);
 }
@@ -143,10 +126,7 @@
   text-align: center;
 }
 
-#root .contact > form .form__group {
-  margin: 10px 0;
-}
-
+#root .contact > form .form__group { margin: 10px 0; }
 #root .contact > form .form__group > * {
   width: 100%;
   max-width: 100%;
@@ -154,17 +134,15 @@
   border: 2px solid transparent;
 }
 
-#root .contact > form .form__group > input, #root .contact > form .form__group > select {
-  padding: var(--padding-form);
-}
+#root .contact > form .form__group > input, #root .contact > form .form__group > select { padding: var(--padding-form); }
 
 #root .contact > form .form__group > select {
   -webkit-appearance: none;
   appearance: none;
-  background: var(--quaternary-color) url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Edown-arrow%3C%2Ftitle%3E%3Cg%20fill%3D%22%23333333%22%3E%3Cpath%20d%3D%22M10.293%2C3.293%2C6%2C7.586%2C1.707%2C3.293A1%2C1%2C0%2C0%2C0%2C.293%2C4.707l5%2C5a1%2C1%2C0%2C0%2C0%2C1.414%2C0l5-5a1%2C1%2C0%2C1%2C0-1.414-1.414Z%22%20fill%3D%22%23333333%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E) no-repeat 95% center;
+  background: var(--quaternary-color) url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Edown-arrow%3C%2Ftitle%3E%3Cg%20fill%3D%22%23333333%22%3E%3Cpath%20d%3D%22M10.293%2C3.293%2C6%2C7.586%2C1.707%2C3.293A1%2C1%2C0%2C0%2C0%2C.293%2C4.707l5%2C5a1%2C1%2C0%2C0%2C0%2C1.414%2C0l5-5a1%2C1%2C0%2C1%2C0-1.414-1.414Z%22%20fill%3D%22%23333333%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E) no-repeat calc(100% - 5%) center;
 }
 
-#root .contact > form .form__group > textarea {
+#root .contact >  form .form__group > textarea {
   height: 100%;
   resize: none;
   padding: var(--padding-form);
@@ -173,7 +151,7 @@
 #root .contact > form button.button {
   background: var(--secondary-color);
   color: var(--primary-color);
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: 'PT Sans Narrow', sans-serif;
   border-radius: var(--border-radius);
   padding: 0.4em 1.5em;
   font-size: 1.1em;
@@ -183,9 +161,7 @@
   border: 2px solid transparent;
 }
 
-#root .contact > form .fgrow {
-  flex-grow: 1;
-}
+#root .contact > form .fgrow { flex-grow: 1; }
 
 form {
   margin: 50px 0;
@@ -207,11 +183,11 @@ form .formGroup > label {
 form .formGroup > select {
   -webkit-appearance: none;
   appearance: none;
-  background: var(--color1) url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Edown-arrow%3C%2Ftitle%3E%3Cg%20fill%3D%22%23333333%22%3E%3Cpath%20d%3D%22M10.293%2C3.293%2C6%2C7.586%2C1.707%2C3.293A1%2C1%2C0%2C0%2C0%2C.293%2C4.707l5%2C5a1%2C1%2C0%2C0%2C0%2C1.414%2C0l5-5a1%2C1%2C0%2C1%2C0-1.414-1.414Z%22%20fill%3D%22%23333333%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E) no-repeat 95% center;
+  background: var(--color1) url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Edown-arrow%3C%2Ftitle%3E%3Cg%20fill%3D%22%23333333%22%3E%3Cpath%20d%3D%22M10.293%2C3.293%2C6%2C7.586%2C1.707%2C3.293A1%2C1%2C0%2C0%2C0%2C.293%2C4.707l5%2C5a1%2C1%2C0%2C0%2C0%2C1.414%2C0l5-5a1%2C1%2C0%2C1%2C0-1.414-1.414Z%22%20fill%3D%22%23333333%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E) no-repeat calc(100% - 5%) center;
 }
 
 form .formGroup > textarea {
-  padding: 15px !important;
+  padding: 15px!important;
   height: 100%;
   resize: none;
   flex-grow: 1;
@@ -224,8 +200,8 @@ form .formGroup > input, form .formGroup > select, form .formGroup > textarea {
   height: 50px;
   border-radius: var(--border-radius);
   border: 2px solid #ECECEC;
-  -webkit-box-shadow: 0px 0px 5px -3px rgb(0, 0, 0);
-  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.41);
+  -webkit-box-shadow: 0px 0px 5px -3px rgba(0,0,0,1);
+  box-shadow: 0px 0px 5px -3px rgba(0,0,0,0.41);
 }
 
 form .formGroup .hasError {
@@ -240,20 +216,22 @@ form .formGroup > button {
   background-color: var(--primary-color);
   border: none;
   border-radius: var(--border-radius);
-}
-form .formGroup > button .lds-dual-ring {
-  display: inline-block;
-}
-form .formGroup > button .lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 10px;
-  height: 10px;
-  margin-right: 8px;
-  border-radius: 50%;
-  border: 2px solid;
-  border-color: #fff transparent #fff transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+
+  .lds-dual-ring {
+    display: inline-block;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin-right: 8px;
+      border-radius: 50%;
+      border: 2px solid;
+      border-color: #fff transparent #fff transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+  }
 }
 
 form .formGroup > button:hover {
@@ -284,14 +262,13 @@ form .formGroup > .error::before {
 }
 
 /** FOOTER AREA **/
+
 #root footer .top {
   padding: 1.5rem 0;
   background: var(--primary-color);
 }
 
-#root footer .top .logo > img {
-  height: 3rem;
-}
+#root footer .top .logo > img { height: 3rem; }
 
 #root footer .top .social {
   display: flex;
@@ -339,58 +316,29 @@ form .formGroup > .error::before {
 }
 
 /** EXTRA CSS **/
+
 .col-dflex {
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex!important;
+  flex-direction: column!important;
 }
 
 @media only screen and (max-width: 768px) {
-  #root .banner {
-    background-position: center right;
-  }
-  #root .banner > .info {
-    width: 90%;
-  }
-  #root section {
-    padding: 15vw 10vw;
-  }
-  #root footer .top {
-    padding: 5vw 10vw;
-  }
-  #root footer .top .logo {
-    margin-bottom: 20px;
-  }
-  #root footer .top .logo > img {
-    display: block;
-    margin: 0 auto;
-  }
-  #root footer .top .social {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  #root footer .bottom {
-    padding: 2vw;
-  }
-  #root footer .bottom .copyright {
-    text-align: center;
-  }
-  #root .banner > .info > img.logo {
-    width: 100%;
-    height: auto;
-  }
-  #root .banner > .info > p.description {
-    font-size: 1.5rem;
-  }
-  #root .contact > form, #root .contact > .title {
-    padding: 0 5vw;
-  }
-  #root .contact > .title > p {
-    font-size: 1.5rem;
-  }
-  #root .contact > form .form__group > textarea {
-    height: 230px;
-  }
+  #root .banner { background-position: center right; }
+  #root .banner > .info { width: 90%; }
+  #root section { padding: 15vw 10vw; }
+  #root footer .top { padding: 5vw 10vw; }
+  #root footer .top .logo { margin-bottom: 20px; }
+  #root footer .top .logo > img { display: block; margin: 0 auto; }
+  #root footer .top .social { justify-content: center; flex-wrap: wrap; }
+  #root footer .bottom { padding: 2vw }
+  #root footer .bottom .copyright { text-align: center; }
+  #root .banner > .info > img.logo { width: 100%; height: auto; }
+  #root .banner > .info > p.description { font-size: 1.5rem; }
+  #root .contact > form, #root .contact > .title { padding: 0 5vw; }
+  #root .contact > .title > p { font-size: 1.5rem; }
+  #root .contact > form .form__group > textarea { height: 230px; }
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -399,5 +347,3 @@ form .formGroup > .error::before {
     transform: rotate(360deg);
   }
 }
-
-/*# sourceMappingURL=main.css.map */

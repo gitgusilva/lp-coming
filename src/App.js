@@ -1,5 +1,8 @@
 import {useEffect, useRef, useState} from "react";
-import { useForm } from "react-hook-form";
+
+import {useForm} from "react-hook-form";
+import emailjs from '@emailjs/browser';
+
 import {FiChevronDown} from "react-icons/fi";
 
 import './assets/main.css';
@@ -8,20 +11,37 @@ import "./assets/flexgrid.css";
 import logo from './assets/images/logo.png'
 import background from './assets/images/bg-banner.jpg';
 import logoWhatsapp from './assets/images/whatsapp.svg';
+import {sendToast, ToastBody} from "./Toast";
 
 function App() {
+
+    const fields = {
+        nameRequired: '',
+        phoneRequired: '',
+        emailRequired: '',
+        subjectRequired: 'Orçamento',
+        messageRequired: ''
+    };
 
     const {
         register,
         handleSubmit,
-        formState: { errors }
-    } = useForm();
+        formState: {errors}
+    } = useForm(fields);
 
+    const form = useRef();
     const footer = useRef();
     const [inside, setInside] = useState(false);
+    const [sending, setSending] = useState(false);
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data, e) => {
+        setSending(true);
+        await emailjs.sendForm('service_a0nz8h9', 'template_x9m3gsl', form.current, 'FV9qRveDp6G6VYBjY')
+            .then(() => {
+                e.target.reset();
+                sendToast('Formulário enviado com sucesso, entraremos em contato o mais breve possível!')
+            }, () => sendToast('Ocorreu um erro ao enviar o formulário, tente novamente!', true));
+        setSending(false);
     };
 
     const wpButton = () => {
@@ -47,7 +67,7 @@ function App() {
         <>
             <section className={"banner"} style={{backgroundImage: `url(${background})`}}>
                 <div className={"info"}>
-                    <img className={"logo"} src={logo} alt={"Logotipo da BlueSea"}/>
+                    <img className={"logo"} src={logo} alt={"Logotipo da MfSeg"}/>
                     <p className={"description"}>
                         Em breve um novo site!
                     </p>
@@ -61,7 +81,7 @@ function App() {
                         </div>
                     </div>
                 </div>
-                <a href={"#contact"} className={"scroll"}>
+                <a href={"#contact"} className={"scroll"} title={"Descer a página"}>
                     <FiChevronDown/>
                 </a>
             </section>
@@ -73,37 +93,45 @@ function App() {
                 </div>
 
 
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form ref={form} onSubmit={handleSubmit(onSubmit)}>
                     <div className={"row"}>
                         <div className={"col-xs-12 col-sm-6 col-dflex"}>
                             <div className={"formGroup"}>
                                 <label htmlFor={"name"}>Nome:</label>
-                                <input id={"name"} className={errors.nameRequired ? 'hasError' : ''} placeholder={"Digite o seu nome"} {...register("nameRequired", { required: true })} />
+                                <input id={"name"} name={"name"} className={errors.nameRequired ? 'hasError' : ''}
+                                       placeholder={"Digite o seu nome"} {...register("nameRequired", {required: true})} />
                                 {errors.nameRequired && <p className={"error"}>Este campo é obrigatório</p>}
                             </div>
                             <div className={"formGroup"}>
                                 <label htmlFor={"phone"}>Telefone:</label>
-                                <input id={"phone"} placeholder={"Digite o seu telefone"}/>
+                                <input id={"phone"} name={"phone"} placeholder={"Digite o seu telefone"} {...register("phoneRequired")} />
                             </div>
                             <div className={"formGroup"}>
                                 <label htmlFor={"email"}>E-mail:</label>
-                                <input id={"email"} className={errors.emailRequired ? 'hasError' : ''} placeholder={"Digite o seu e-mail"} {...register("emailRequired", { required: true })}/>
-                                {errors.emailRequired && <p className={"error"}>Este campo é obrigatório</p>}
+                                <input id={"email"} name={"email"} className={errors.emailRequired ? 'hasError' : ''}
+                                       placeholder={"Digite o seu e-mail"} {...register("emailRequired", {required: 'Este campo é obrigatório.', pattern: {
+                                        value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                        message: 'Informe um e-mail válido.',
+                                    }})}/>
+                                {errors.emailRequired?.message && <p className={"error"}>{errors.emailRequired?.message}</p>}
                             </div>
                         </div>
                         <div className={"col-xs-12 col-sm-6 col-dflex"}>
                             <div className={"formGroup"}>
                                 <label htmlFor={"subject"}>Assunto:</label>
-                                <select id={"subject"} className={errors.subjectRequired ? 'hasError' : ''} defaultValue={"0"} name={"assunto"} {...register("subjectRequired", { required: true })}>
+                                <select id={"subject"} name={"subject"} className={errors.subjectRequired ? 'hasError' : ''}
+                                        defaultValue={"Não Informado"}
+                                        {...register("subjectRequired", {required: true})}>
                                     <option disabled={true}>Qual o seu interesse?</option>
-                                    <option value={"1"}>Orçamento</option>
-                                    <option value={"2"}>Outros...</option>
+                                    <option value={"Orçamento"}>Orçamento</option>
+                                    <option value={"Outros..."}>Outros...</option>
                                 </select>
                                 {errors.subjectRequired && <p className={"error"}>Este campo é obrigatório</p>}
                             </div>
                             <div className={"formGroup fgrow"}>
                                 <label htmlFor={"message"}>Mensagem:</label>
-                                <textarea id={"message"} className={errors.messageRequired ? 'hasError' : ''} placeholder={"Digite a sua mensagem"} {...register("messageRequired", { required: true })} />
+                                <textarea id={"message"} name={"message"} className={errors.messageRequired ? 'hasError' : ''}
+                                          placeholder={"Digite a sua mensagem"} {...register("messageRequired", {required: true})} />
                                 {errors.messageRequired && <p className={"error"}>Este campo é obrigatório</p>}
                             </div>
                         </div>
@@ -111,7 +139,7 @@ function App() {
                     <div className={"row"}>
                         <div className={"col-xs-12"}>
                             <div className={"formGroup"}>
-                                <button type={"submit"}>Enviar</button>
+                                <button type={"submit"} disabled={sending}>{sending && <span className={"lds-dual-ring"}/>}Enviar</button>
                             </div>
                         </div>
                     </div>
@@ -124,19 +152,22 @@ function App() {
                         <div className={"row"}>
                             <div className={"col-xs-12 col-md-4"}>
                                 <div className={"logo"}>
-                                    <img className={"logo"} src={logo} alt={"Logotipo da BlueSea"}/>
+                                    <img className={"logo"} src={logo} alt={"Logotipo da MfSeg"}/>
                                 </div>
                             </div>
                             <div className={"col-xs-12 col-md-8"}>
                                 <ul className={"social"}>
                                     <li>
-                                        <a href={"https://instagram.com"} target={"_blank"} rel={"noreferrer"}>Facebook</a>
+                                        <a href={"https://instagram.com"} target={"_blank"}
+                                           rel={"noreferrer"}>Facebook</a>
                                     </li>
                                     <li>
-                                        <a href={"https://instagram.com"} target={"_blank"} rel={"noreferrer"}>Youtube</a>
+                                        <a href={"https://instagram.com"} target={"_blank"}
+                                           rel={"noreferrer"}>Youtube</a>
                                     </li>
                                     <li>
-                                        <a href={"https://instagram.com"} target={"_blank"} rel={"noreferrer"}>Instagram</a>
+                                        <a href={"https://instagram.com"} target={"_blank"}
+                                           rel={"noreferrer"}>Instagram</a>
                                     </li>
                                 </ul>
                             </div>
@@ -148,7 +179,7 @@ function App() {
                         <div className={"row"}>
                             <div className={"col-xs-12 col-md-12"}>
                                 <div className={"copyright"}>
-                                    2022 © BlueSea Offshore Catering eireli, todos os direitos reservados.
+                                    2022 © MFseg, todos os direitos reservados.
                                 </div>
                             </div>
                         </div>
@@ -157,10 +188,12 @@ function App() {
             </footer>
 
             <div className={`whatsapp ${inside ? 'hide' : ''}`}>
-                <a href={"https://whatsapp.com/"} target={"_blank"} rel={"noreferrer"}>
-                    <img src={logoWhatsapp} alt={"link para contato via whatsapp"}/>
+                <a href={"https://api.whatsapp.com/send?phone=5547991081800&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20os%20seus%20servi%C3%A7os."} target={"_blank"} rel={"noreferrer"}>
+                    <img src={logoWhatsapp} alt={"Link para contato via whatsapp"}/>
                 </a>
             </div>
+
+            <ToastBody/>
         </>
     );
 }
