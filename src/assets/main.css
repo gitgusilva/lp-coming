@@ -1,9 +1,9 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,800;0,900;1,700;1,900&display=swap");
 :root {
-  --primary-color: #2a2a2a;
-  --secondary-color: #bbac76;
-  --tertiary-color: #9e8a4c;
+  --primary-color: #354B54;
+  --secondary-color: #16769d;
+  --tertiary-color: #0a4c69;
   --quaternary-color: #ffffff;
   --error-color: #bf1650;
   --border-radius: 0.875rem;
@@ -36,7 +36,7 @@
   background: var(--primary-color) no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
-  background-blend-mode: overlay;
+  background-blend-mode: multiply;
 }
 
 #root .banner > .info {
@@ -48,7 +48,7 @@
 }
 
 #root .banner > .info > img.logo {
-  height: 8.5rem;
+  height: 18rem;
   margin-bottom: 2.5rem;
 }
 
@@ -375,7 +375,7 @@ form .formGroup > .error::before {
     text-align: center;
   }
   #root .banner > .info > img.logo {
-    width: 100%;
+    width: 50%;
     height: auto;
   }
   #root .banner > .info > p.description {

@@ -8,7 +8,7 @@ import {FiChevronDown} from "react-icons/fi";
 import './assets/main.css';
 import "./assets/flexgrid.css";
 
-import logo from './assets/images/logo.png'
+import logo from './assets/images/logo.svg';
 import background from './assets/images/bg-banner.jpg';
 import logoWhatsapp from './assets/images/whatsapp.svg';
 import {sendToast, ToastBody} from "./Toast";
@@ -36,7 +36,7 @@ function App() {
 
     const onSubmit = async (data, e) => {
         setSending(true);
-        await emailjs.sendForm('service_a0nz8h9', 'template_x9m3gsl', form.current, 'FV9qRveDp6G6VYBjY')
+        await emailjs.sendForm('service_rag_rspytgh', 'template_o7498s8', form.current, 'wgpHvXBw6AISmoV6a')
             .then(() => {
                 e.target.reset();
                 sendToast('Formulário enviado com sucesso, entraremos em contato o mais breve possível!')
@@ -67,7 +67,7 @@ function App() {
         <>
             <section className={"banner"} style={{backgroundImage: `url(${background})`}}>
                 <div className={"info"}>
-                    <img className={"logo"} src={logo} alt={"Logotipo da MfSeg"}/>
+                    <img className={"logo"} src={logo} alt={"Logotipo da Rag Assessoria comercial"}/>
                     <p className={"description"}>
                         Em breve um novo site!
                     </p>
@@ -152,7 +152,7 @@ function App() {
                         <div className={"row"}>
                             <div className={"col-xs-12 col-md-4"}>
                                 <div className={"logo"}>
-                                    <img className={"logo"} src={logo} alt={"Logotipo da MfSeg"}/>
+                                    <img className={"logo"} src={logo} alt={"Logotipo da Rag Assessoria comercial"}/>
                                 </div>
                             </div>
                             <div className={"col-xs-12 col-md-8"}>
@@ -179,7 +179,7 @@ function App() {
                         <div className={"row"}>
                             <div className={"col-xs-12 col-md-12"}>
                                 <div className={"copyright"}>
-                                    2022 © MFseg, todos os direitos reservados.
+                                    2022 © Rag Assessoria Comercial, todos os direitos reservados.
                                 </div>
                             </div>
                         </div>
