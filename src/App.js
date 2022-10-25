@@ -188,7 +188,7 @@ function App() {
             </footer>
 
             <div className={`whatsapp ${inside ? 'hide' : ''}`}>
-                <a href={"https://api.whatsapp.com/send?phone=5547991081800&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20os%20seus%20servi%C3%A7os."} target={"_blank"} rel={"noreferrer"}>
+                <a href={"https://api.whatsapp.com/send?phone=5547900000000&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20os%20seus%20servi%C3%A7os."} target={"_blank"} rel={"noreferrer"}>
                     <img src={logoWhatsapp} alt={"Link para contato via whatsapp"}/>
                 </a>
             </div>
