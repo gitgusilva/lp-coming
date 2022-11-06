@@ -150,26 +150,10 @@ function App() {
                 <div className={"top"}>
                     <div className={"container"}>
                         <div className={"row"}>
-                            <div className={"col-xs-12 col-md-4"}>
+                            <div className={"col-xs-12"}>
                                 <div className={"logo"}>
                                     <img className={"logo"} src={logo} alt={"Logotipo da Rag Assessoria comercial"}/>
                                 </div>
-                            </div>
-                            <div className={"col-xs-12 col-md-8"}>
-                                <ul className={"social"}>
-                                    <li>
-                                        <a href={"https://instagram.com"} target={"_blank"}
-                                           rel={"noreferrer"}>Facebook</a>
-                                    </li>
-                                    <li>
-                                        <a href={"https://instagram.com"} target={"_blank"}
-                                           rel={"noreferrer"}>Youtube</a>
-                                    </li>
-                                    <li>
-                                        <a href={"https://instagram.com"} target={"_blank"}
-                                           rel={"noreferrer"}>Instagram</a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -188,7 +172,7 @@ function App() {
             </footer>
 
             <div className={`whatsapp ${inside ? 'hide' : ''}`}>
-                <a href={"https://api.whatsapp.com/send?phone=5547900000000&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20os%20seus%20servi%C3%A7os."} target={"_blank"} rel={"noreferrer"}>
+                <a href={"https://api.whatsapp.com/send?phone=5547997700207&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20os%20seus%20servi%C3%A7os."} target={"_blank"} rel={"noreferrer"}>
                     <img src={logoWhatsapp} alt={"Link para contato via whatsapp"}/>
                 </a>
             </div>
